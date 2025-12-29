@@ -1,0 +1,17 @@
+# Cache Hit / Miss Test
+
+access 10
+access 20
+access 10
+access 30
+access 10
+cache_stats
+
+# FIFO Eviction Test
+
+access 40
+access 50
+access 60
+access 70
+access 10
+cache_stats

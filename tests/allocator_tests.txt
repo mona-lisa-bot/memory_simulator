@@ -1,0 +1,33 @@
+# Allocation Strategy Test
+
+set allocator first_fit
+malloc 100
+malloc 200
+malloc 50
+dump memory
+stats
+
+# Free + Coalescing
+
+free 2
+dump memory
+stats
+
+# Best Fit
+
+set allocator best_fit
+malloc 180
+dump memory
+stats
+
+# Worst Fit
+
+set allocator worst_fit
+malloc 60
+dump memory
+stats
+
+# Allocation Failure
+
+malloc 2000
+stats
