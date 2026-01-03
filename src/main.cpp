@@ -80,8 +80,12 @@ int main(){
             if(what=="allocator"){
                 if(val=="first_fit") mem.set_allocator(FIRST_FIT);
                 else if(val=="best_fit") mem.set_allocator(BEST_FIT);
-                if(val=="worst_fit") mem.set_allocator(WORST_FIT);
-                cout<<"Allocator set to"<<val<<"\n";
+                else if(val=="worst_fit") mem.set_allocator(WORST_FIT);
+                else{
+                    cout << "Invalid allocator. Use: first_fit | best_fit | worst_fit\n";
+                    continue;
+                }
+                cout<<"Allocator set to "<<val<<"\n";
             }
         }
         else{

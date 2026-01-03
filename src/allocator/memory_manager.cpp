@@ -24,15 +24,14 @@ MemoryManager::~MemoryManager() {
 
 void MemoryManager::init_memory(size_t size) {
     total_memory = size;
-
-    // delete old memory if exists
-    if (head) {
+    // if old memory exists, then first delete it
+    if(head){
         delete head;
     }
 
-    // one big free block
     head = new Block(0, size);
 }
+
 int MemoryManager::malloc_block(size_t size) {
     alloc_attempts++;
 
@@ -71,7 +70,7 @@ int MemoryManager::malloc_block(size_t size) {
     chosen->id=next_id++;
 
     cout<<"Allocated Block id="<<chosen->id
-        <<"at address=0x"<<hex<<chosen->start<<dec<<"\n";
+        <<" at address=0x"<<hex<<chosen->start<<dec<<"\n";
     
         return chosen->id;
     

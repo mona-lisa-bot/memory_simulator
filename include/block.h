@@ -9,7 +9,7 @@ struct Block{
     size_t size;
     size_t requested;
     bool is_free;
-    Block*next;
+    Block* next;
 
     Block(size_t s,size_t sz)
         :id(-1),start(s),size(sz),requested(0),
