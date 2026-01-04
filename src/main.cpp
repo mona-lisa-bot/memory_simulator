@@ -5,6 +5,12 @@
 #include <string>
 using namespace std;
 
+#define GREEN "\033[32m"
+#define RED   "\033[31m"
+#define YELLOW "\033[33m"
+#define RESET "\033[0m"
+
+
 int main(){
     MemoryManager mem;
     mem.init_memory(1024);
@@ -21,12 +27,13 @@ int main(){
     cout<<"set allocator first_fit|best_fit|worst_fit\n";
     cout<<"access <address>\n";
     cout<<"cache_stats\n";
+    cout<<"help\n";
     cout<<"exit\n";
 
     string line;
     
     while(true){
-        cout<<">";
+        cout<< YELLOW <<"memsim> " << RESET;
         getline(cin,line);
 
         stringstream ss(line);
@@ -42,14 +49,17 @@ int main(){
                 mem.init_memory(size);
                 cout<<"Memory initialized with size "<<size<<"\n";
             }else{
-                cout<<"Invalid init command. Use: init memory <size>\n";
+                cout<< "Invalid init command. Use: init memory <size>\n";
             }
             continue;
         }
         if(cmd=="malloc"){
             size_t size;
             ss>>size;
-            mem.malloc_block(size);
+            int id= mem.malloc_block(size);
+            if(id!=1)
+                cout<<GREEN;
+            cout<<RESET;
         }
         else if(cmd=="free"){
             int id;
@@ -96,14 +106,26 @@ int main(){
                 else if(val=="best_fit") mem.set_allocator(BEST_FIT);
                 else if(val=="worst_fit") mem.set_allocator(WORST_FIT);
                 else{
-                    cout << "Invalid allocator. Use: first_fit | best_fit | worst_fit\n";
+                    cout << RED << "Invalid allocator. Use: first_fit | best_fit | worst_fit\n" << RESET;
                     continue;
                 }
                 cout<<"Allocator set to "<<val<<"\n";
             }
         }
+        else if(cmd=="help"){
+            cout << YELLOW << "Commands:\n" << RESET;
+            cout<<"init memory <size>\n";
+            cout<<"malloc <size>\n";
+            cout<<"free <id>\n";
+            cout<<"dump memory\n";
+            cout<<"stats\n";
+            cout<<"set allocator first_fit|best_fit|worst_fit\n";
+            cout<<"access <address>\n";
+            cout<<"cache_stats\n";
+            cout<<"exit\n";
+        }
         else{
-            cout<<"unknown command\n";
+            cout<< RED <<"unknown command\n"<< RESET;
         }
     }
 
