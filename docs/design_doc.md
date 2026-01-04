@@ -129,3 +129,7 @@ No virtual memory or paging
 Cache is logical, not cycle-accurate
 
 No process abstraction
+
+Cache simulation abstracts block size and associativity. Cache lines directly store memory addresses to model hit/miss behaviour and replacement policy rather than microarchitectural structure.
+
+This simulator uses variable-size block splitting for allocation. Therefore allocated blocks always match the requested size exactly, resulting in zero internal fragmentation. Internal fragmentation would arise in fixed-size allocators such as the buddy system, which is listed as a future extension.

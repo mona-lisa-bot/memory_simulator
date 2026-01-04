@@ -73,7 +73,7 @@ int MemoryManager::malloc_block(size_t size) {
 
     chosen->size=size;
     chosen->requested=size;
-    internal_frag+=(chosen->size-chosen->requested);
+    internal_frag += (chosen->size - chosen->requested);
     chosen->is_free=false;
     chosen->id=next_id++;
 

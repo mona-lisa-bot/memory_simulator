@@ -10,13 +10,13 @@ bool Cache::access(int address){
     auto it=find(lines.begin(),lines.end(),address);
     if(it!=lines.end()){
         hits++;
-        cout<<"cache HIT for address"<<address<<"\n";
+        cout<<"cache HIT for address "<<address<<"\n";
         return true;
     }
 
 
     misses++;
-    cout<<"cache MISS for address"<<address<<"\n";
+    cout<<"cache MISS for address "<<address<<"\n";
 
     if((int)lines.size()<capacity){
         lines.push_back(address);

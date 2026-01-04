@@ -3,12 +3,14 @@ CXXFLAGS = -std=c++17 -Wall -Iinclude
 
 SRC = src/main.cpp \
       src/allocator/memory_manager.cpp \
-      src/allocator/block.cpp
+      src/allocator/block.cpp \
+      src/cache.cpp
 
-TARGET = memsim
+OUT = memsim
 
 all:
-	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET)
+	$(CXX) $(CXXFLAGS) $(SRC) -o $(OUT)
 
 clean:
-	rm -f $(TARGET)
+	del /Q $(OUT).exe 2>nul || del /Q $(OUT) 2>nul
+
