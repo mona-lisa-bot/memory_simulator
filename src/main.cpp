@@ -13,6 +13,7 @@ int main(){
     
     cout<<"Memory Simulator\n";
     cout<<"Commands:\n";
+    cout<<"init memory <size>\n";
     cout<<"malloc <size>\n";
     cout<<"free <id>\n";
     cout<<"dump memory\n";
@@ -32,6 +33,19 @@ int main(){
         string cmd;
         ss>>cmd;
 
+        if(cmd=="init"){
+            string what;
+            size_t size;
+            ss>>what>>size;
+
+            if(what=="memory"){
+                mem.init_memory(size);
+                cout<<"Memory initialized with size "<<size<<"\n";
+            }else{
+                cout<<"Invalid init command. Use: init memory <size>\n";
+            }
+            continue;
+        }
         if(cmd=="malloc"){
             size_t size;
             ss>>size;

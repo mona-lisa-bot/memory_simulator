@@ -23,13 +23,21 @@ MemoryManager::~MemoryManager() {
 }
 
 void MemoryManager::init_memory(size_t size) {
-    total_memory = size;
-    // if old memory exists, then first delete it
-    if(head){
-        delete head;
+    // if old memory list exists, then first delete it
+    Block* curr = head;
+    while(curr){
+        Block*temp=curr;
+        curr=curr->next;
+        delete temp;
     }
-
+    
+    total_memory=size;
     head = new Block(0, size);
+
+    next_id=1;
+    alloc_attempts=0;
+    alloc_success=0;
+    internal_frag=0;
 }
 
 int MemoryManager::malloc_block(size_t size) {
