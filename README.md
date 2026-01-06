@@ -4,11 +4,20 @@ A **C++ based simulator** that models how an Operating System manages **physical
 
 ---
 
+## 🎥 Demo Video
+
+The full project demonstration is available in the repository as:
+
+**`demo.mp4`**
+
+GitHub does not preview large video files.  
+Please click the file and download it locally to view the demo.
+
+
 ## 📂 Project Structure
 
 ```
 MEMORY_SIMULATOR/
-│
 │
 ├── docs/
 │   ├── screenshots/
