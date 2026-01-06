@@ -1,59 +1,98 @@
-🧠 Memory Management Simulator
+# 🧠 Memory Management Simulator
 
-A C++ based simulator that models how an Operating System manages physical memory, dynamic allocation strategies, and a multilevel CPU cache hierarchy.
-The project demonstrates core OS concepts such as heap allocation, fragmentation handling, and cache replacement policies.
+A **C++ based simulator** that models how an Operating System manages **physical memory**, **dynamic allocation strategies**, and a **multi-level CPU cache hierarchy**.
 
-📂 Project Structure
-memory_simulator/
+---
+
+## 📂 Project Structure
+
+```
+MEMORY_SIMULATOR/
+│
+│
+├── docs/
+│   ├── screenshots/
+│   └── Memory Simulator Design.pdf
 │
 ├── include/
 │   ├── block.h
-│   ├── memory_manager.h
-│   └── cache.h
+│   ├── cache.h
+│   └── memory_manager.h
 │
 ├── src/
-│   ├── main.cpp
+│   ├── allocator/
+│   │   ├── block.cpp
+│   │   └── memory_manager.cpp
+│   │
 │   ├── cache.cpp
-│   └── allocator/
-│       ├── block.cpp
-│       └── memory_manager.cpp
+│   └── main.cpp
 │
 ├── tests/
-│   ├── allocator_tests.txt
-│   └── cache_tests.txt
+│   ├── allocation_workload.txt
+│   ├── cache_access_log.txt
+│   ├── cache_fifo_eviction.txt
+│   ├── expected_results.txt
+│   ├── virtual_address_log.txt
+│   └── run_tests.ps1
 │
-└── README.md
+├── demo.mp4
+├── Makefile
+├── README.md
+```
 
+---
 
-⚙ Build Instructions
-Requirements
+## ⚙ Build Instructions
 
-g++ compiler (MinGW / Linux g++ / Mac clang++)
+### Step 1 — Clone or Download the Repository
 
-C++17 standard
+```bash
+git clone https://github.com/mona-lisa-bot/memory_simulator.git
+cd memory_simulator
+```
 
-Compile
+Or download the ZIP and extract it.
 
-From the project root:
-'''g++ -std=c++17 -Wall -Iinclude src/main.cpp src/allocator/memory_manager.cpp src/allocator/block.cpp src/cache.cpp -o memsim'''
+---
 
-Run
-'''./memsim      # Linux / Mac
-memsim.exe    # Windows'''
+### Step 2 — Build using Makefile
 
-💻 Supported Commands
-Command	Description
-malloc <size>	Allocate memory block
-free <id>	Free allocated block
-dump memory	Show memory layout
-stats	Display memory statistics
-`set allocator first_fit	best_fit
-access <address>	Simulate cache access
-cache_stats	Show cache hit/miss stats
-exit	Exit simulator
+```bash
+make
+```
 
-📊 Sample Usage
-'''set allocator best_fit
+### Step 3 — Run the Simulator
+
+```bash
+./memsim        # Linux / Mac
+.\memsim        # Windows
+```
+
+---
+
+## 💻 Commands
+
+| Command | Description |
+|-------|-------------|
+| `init memory <size>` | Memory Initialisation|
+| `malloc <size>` | Allocate memory |
+| `free <id>` | Free block |
+| `dump memory` | Print memory |
+| `stats` | Show statistics |
+| `set allocator first_fit` | First Fit |
+| `set allocator best_fit` | Best Fit |
+| `set allocator worst_fit` | Worst Fit |
+| `access <address>` | Cache access |
+| `cache_stats` | Cache statistics |
+| `help` | Help |
+| `exit` | Exit |
+
+---
+
+## 📊 Sample Usage
+
+```bash
+set allocator best_fit
 malloc 100
 malloc 200
 free 1
@@ -63,22 +102,17 @@ access 10
 access 20
 access 10
 cache_stats
-'''
+```
 
-🧩 Implemented Features
+---
 
-Physical memory simulation
+## 🧩 Features
 
-First Fit, Best Fit, Worst Fit allocation
+- Physical memory simulation  
+- First / Best / Worst Fit allocation  
+- Block splitting & merging  
+- Fragmentation tracking  
+- L1 + L2 cache with FIFO eviction  
+- Cache hit / miss statistics  
+- CLI based interaction
 
-Block splitting & coalescing
-
-Internal & external fragmentation metrics
-
-Allocation success rate
-
-L1 + L2 cache with FIFO replacement
-
-Cache hit/miss tracking
-
-CLI based interaction
