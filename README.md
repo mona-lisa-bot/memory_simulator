@@ -1,14 +1,19 @@
 # 🧠 Memory Management Simulator
 
-A **C++ based simulator** that models how an Operating System manages physical memory,  
-dynamic allocation strategies, and a **multi-level CPU cache hierarchy**.
+A **C++ based simulator** that models how an Operating System manages **physical memory**, **dynamic allocation strategies**, and a **multi-level CPU cache hierarchy**.
 
 ---
 
 ## 📂 Project Structure
 
 ```
-memory_simulator/
+MEMORY_SIMULATOR/
+│
+├── .vscode/
+│
+├── docs/
+│   ├── screenshots/
+│   └── Memory Simulator Design.pdf
 │
 ├── include/
 │   ├── block.h
@@ -16,22 +21,26 @@ memory_simulator/
 │   └── memory_manager.h
 │
 ├── src/
-│   ├── main.cpp
+│   ├── allocator/
+│   │   ├── block.cpp
+│   │   └── memory_manager.cpp
+│   │
 │   ├── cache.cpp
-│   └── allocator/
-│       ├── block.cpp
-│       └── memory_manager.cpp
+│   └── main.cpp
 │
 ├── tests/
 │   ├── allocation_workload.txt
-│   └── cache_access_log.txt
-|   |__ cache_fifo_eviction.txt
-|   |__ expected_Results.txt
-|   |__ virtual_address_log.txt
-|   |__ run_tests.ps1
+│   ├── cache_access_log.txt
+│   ├── cache_fifo_eviction.txt
+│   ├── expected_results.txt
+│   ├── virtual_address_log.txt
+│   └── run_tests.ps1
 │
-|__
-└── README.md
+├── demo.mp4
+├── Makefile
+├── memsim.exe
+├── README.md
+└── .gitattributes
 ```
 
 ---
@@ -41,7 +50,7 @@ memory_simulator/
 ### Step 1 — Clone or Download the Repository
 
 ```bash
-git clone <your-repo-link>
+git clone https://github.com/mona-lisa-bot/memory_simulator.git
 cd memory_simulator
 ```
 
