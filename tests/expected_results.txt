@@ -1,0 +1,14 @@
+Allocation Workload:
+- After freeing block 2, two free blocks must appear.
+- External fragmentation must be > 0%.
+- best_fit should choose smallest suitable free block.
+- worst_fit should choose largest free block.
+
+Cache Tests:
+- First access of any address should be MISS.
+- Repeated access should generate HIT.
+- FIFO eviction should remove the oldest cached address.
+
+Metrics:
+- Used + Free memory must equal Total memory.
+- Allocation success rate must drop after malloc failure.

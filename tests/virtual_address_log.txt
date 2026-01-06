@@ -1,0 +1,3 @@
+Virtual memory is not implemented.
+All memory accesses are treated as physical addresses.
+This file documents future test plans for paging.

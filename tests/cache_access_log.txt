@@ -1,0 +1,6 @@
+access 10
+access 20
+access 10
+access 30
+access 10
+cache_stats
