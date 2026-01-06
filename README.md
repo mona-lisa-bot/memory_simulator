@@ -9,7 +9,6 @@ A **C++ based simulator** that models how an Operating System manages **physical
 ```
 MEMORY_SIMULATOR/
 │
-│
 ├── docs/
 │   ├── screenshots/
 │   └── Memory Simulator Design.pdf
