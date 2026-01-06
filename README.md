@@ -9,7 +9,6 @@ A **C++ based simulator** that models how an Operating System manages **physical
 ```
 MEMORY_SIMULATOR/
 │
-├── .vscode/
 │
 ├── docs/
 │   ├── screenshots/
@@ -38,9 +37,7 @@ MEMORY_SIMULATOR/
 │
 ├── demo.mp4
 ├── Makefile
-├── memsim.exe
 ├── README.md
-└── .gitattributes
 ```
 
 ---
