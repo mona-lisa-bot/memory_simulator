@@ -38,11 +38,28 @@ memory_simulator/
 
 ## ⚙ Build Instructions
 
-### Run
+### Step 1 — Clone or Download the Repository
+
+```bash
+git clone <your-repo-link>
+cd memory_simulator
+```
+
+Or download the ZIP and extract it.
+
+---
+
+### Step 2 — Build using Makefile
 
 ```bash
 make
-./memsim
+```
+
+### Step 3 — Run the Simulator
+
+```bash
+./memsim        # Linux / Mac
+.\memsim        # Windows
 ```
 
 ---
