@@ -21,7 +21,8 @@ MEMORY_SIMULATOR/
 │
 ├── docs/
 │   ├── screenshots/
-│   └── Memory Simulator Design.pdf
+|
+│── Memory Simulator Design.pdf
 │
 ├── include/
 │   ├── block.h
